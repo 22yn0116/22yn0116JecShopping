@@ -1,0 +1,19 @@
+/**/
+/*id名「LoginTable」を付けた部分（ログインのtable）にCSSを適用する*/
+#Lointable{
+    float: left;
+}
+
+/*class名「box」を付けた部分にCSSを適用する*/
+.box{
+    margin-left: 10px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    padding: 5px;
+    border: 1px solid black;
+}
+th{
+    background-color: green;
+    color: white;
+    text-align: center;
+}

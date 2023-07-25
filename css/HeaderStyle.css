@@ -1,0 +1,12 @@
+/**/
+#logo{
+    float: left;
+}
+
+#link{
+    float: right;
+}
+
+#clear{
+    clear: both /*水平線の周り込みを解除*/
+}
