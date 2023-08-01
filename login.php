@@ -71,7 +71,7 @@
     <?php include "header2.php"; ?>
 
     <form action=" " method="POST">
-        <table id=LoginTable class="box">
+        <table id="LoginTable" class="box">
             <tr>
                 <th colspan="2">
                     ログイン

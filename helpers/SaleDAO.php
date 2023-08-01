@@ -33,6 +33,12 @@ class SaleDAO
             //トランザクションを開始する
             $dbh->beginTransaction();
 
+            //BEGIN TRANSACTION;
+            // select * from Member with(TABLOCK, HOLDLOCK);
+            // ROLLBACK; 
+            //↑上記2行をDBで実行、会員登録をし、ぐるぐるなるので3行目を実行し会員登録完了するとうまく動いている証拠
+            //MemberではなくSaleだけどMemberで動いていたらSaleでも動いてると思うので完了
+
             //トランザクション終了までSale表を共有ロックする
             $sql = "SELECT * FROM Sale WITH(TABLOCK, HOLDLOCK)"; //TABLOCK：テーブルにロックをかける/HOLDLOCK：トランザクション終了までロック状態を維持する
             $dbh->query($sql);

@@ -140,19 +140,22 @@ Class CartDAO
     public function get_number_of_goods(int $memberid){
         $dbh = DAO::get_db_connect();
 
-        $sql = "SELECT SUM(num) FROM Cart WHERE memberid = :memberid";
+        $sql = "SELECT SUM(num) AS num FROM Cart WHERE memberid = :memberid";
 
         $stmt = $dbh->prepare($sql);
         $stmt->bindValue('memberid', $memberid, PDO::PARAM_INT);
         $stmt->execute();
 
-        //  $data = $stmt->fetchObject();
-        //  return $data->num;
+        //①オブジェクトnumとして取り出す(AS num必須)
+        $data = $stmt->fetchObject();
+        return $data->num;
 
+        //②列名numとして取り出す(AS num必須)
         // $data = $stmt->fetch(PDO::FETCH_ASSOC);
         // return $data['num'];
 
-        $data = $stmt->fetch();
-        return $data[0];
+        //③配列番号、文字列でも取り出し可、配列番号ならAS num不要、②より処理速度が遅い
+        // $data = $stmt->fetch();
+        // return $data[0];
     }
 }
